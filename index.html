@@ -22,7 +22,7 @@
             <span class="line"><span data-line style="--i:0" translate="no">Demand Chain Analyzer</span></span>
             <span class="line"><span data-line style="--i:1">für Business Central</span></span>
           </h1>
-          <p class="lead" data-load style="--d:420ms">Sehen Sie in jeder Auftragszeile, ob der Bedarf rechtzeitig und vollständig gedeckt ist – über Fertigung, Einkauf und Lager hinweg.</p>
+          <p class="lead" data-load style="--d:420ms">Sehen Sie in jedem Auftrag und jeder Auftragszeile, ob der Bedarf rechtzeitig und vollständig gedeckt ist – über Fertigung, Einkauf und Lager hinweg.</p>
           <a class="button" data-load style="--d:480ms" href="#kontakt">Pilotprojekt anfragen</a>
         </div>
       </div>
@@ -32,59 +32,37 @@
         <section class="chain" data-ui data-chain aria-label="Beispiel einer Bedarfskette zum Ausprobieren">
           <div class="chain__head">
             <span class="ui-title">Bedarfskette · VA-1042 · Zeile 10000</span>
-            <span class="ui-muted">Beispiel</span>
+            <span class="ui-muted">Beispiel – Zeile wählen und ändern</span>
           </div>
-          <ul class="chain__tree">
-            <li data-node="va" style="--lvl:0">
-              <span><span class="node-doc">Verkaufsauftrag VA-1042</span><span class="node-meta">RR-200 Rollregal · 40 Stk · Warenausgang 13.11.2026</span></span>
-              <span class="status" data-c="green">In Bearbeitung</span>
-            </li>
-            <li data-node="fa" style="--lvl:1">
-              <span><span class="node-doc">Fertigungsauftrag FA-3077</span><span class="node-meta">RR-200 Rollregal · 40 Stk · Ende 11.11.2026</span></span>
-              <span class="status" data-c="green">In Bearbeitung</span>
-            </li>
-            <li data-node="sp" style="--lvl:2">
-              <span><span class="node-doc">Komponente SP-80 Stahlprofil</span><span class="node-meta">80 m · Bedarf 06.11.2026</span></span>
-              <span class="status" data-c="green">In Bearbeitung</span>
-            </li>
-            <li data-node="eb" style="--lvl:3">
-              <span><span class="node-doc">Einkaufsbestellung EB-5521</span><span class="node-meta">Kreditor K-40010 Musterstahl · SP-80</span></span>
-              <span class="status" data-c="green">In Bearbeitung</span>
-            </li>
-            <li data-node="lr" style="--lvl:2">
-              <span><span class="node-doc">Komponente LR-50 Lenkrolle</span><span class="node-meta">160 Stk · Bedarf 06.11.2026</span></span>
-              <span class="status" data-c="green">Auf Lager</span>
-            </li>
-            <li data-node="stock" style="--lvl:3">
-              <span><span class="node-doc">Lagerbestand Lagerort HAUPT</span><span class="node-meta">LR-50 · 160 Stk</span></span>
-              <span class="status" data-c="green">Auf Lager</span>
-            </li>
-          </ul>
+          <ul class="chain__tree" data-tree></ul>
+          <noscript><p class="chain__noscript">Für das interaktive Beispiel bitte JavaScript aktivieren.</p></noscript>
           <div class="chain__controls">
-            <label for="eb-date">Erw. Wareneingang EB-5521
-              <input id="eb-date" name="eb-date" type="date" value="2026-11-04" min="2026-10-01" max="2026-12-31">
+            <p class="chain__selected" data-selected>Einkaufsbestellung EB-5521</p>
+            <label for="node-date" data-date-wrap><span data-date-label>Wareneingang</span>
+              <input id="node-date" name="node-date" type="date" min="2026-10-01" max="2026-12-31">
             </label>
-            <label for="eb-qty">Menge EB-5521 (m)
-              <input id="eb-qty" name="eb-qty" type="number" inputmode="numeric" value="80" min="0" max="200" step="10">
+            <label for="node-qty">Menge (Stk)
+              <input id="node-qty" name="node-qty" type="number" inputmode="numeric" min="0" max="500" step="5">
             </label>
-            <p class="chain__readout" data-readout aria-live="polite">
-              <span>Bedarfsstatus der Verkaufszeile: <span class="status" data-c="green">In Bearbeitung</span></span>
+            <div class="chain__readout" data-readout aria-live="polite">
+              <span>Zeile 10000: <span class="status" data-line-status data-c="green">In Bearbeitung</span></span>
+              <span>Beleg VA-1042: <span class="status" data-doc-status data-c="green">In Bearbeitung</span></span>
               <button class="chain__reset" type="button">Zurücksetzen</button>
-            </p>
+            </div>
           </div>
         </section>
       </div>
     </header>
 
     <section class="section showcase" aria-labelledby="h-zeile">
-      <h2 id="h-zeile" data-reveal>Direkt in der Zeile</h2>
+      <h2 id="h-zeile" data-reveal>Im Beleg und in jeder Zeile</h2>
 
       <div class="state">
         <p class="state__word" data-reveal>Neu</p>
         <div class="row" data-ui data-reveal style="--i:1">
           <table>
             <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
-            <tbody><tr><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
+            <tbody><tr><td>SG-200</td><td>Steuergerät</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
           </table>
         </div>
       </div>
@@ -94,7 +72,7 @@
         <div class="row" data-ui data-reveal data-live-row style="--i:1">
           <table>
             <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
-            <tbody><tr class="is-hover"><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
+            <tbody><tr class="is-hover"><td>SG-200</td><td>Steuergerät</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
           </table>
           <div class="row__actions">
             <button class="primary" type="button" data-calc>Berechne Bedarfskette</button>
@@ -108,14 +86,14 @@
         <div class="row" data-ui data-reveal style="--i:1">
           <table>
             <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
-            <tbody><tr><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="yellow">Datumsabweichung</span></td></tr></tbody>
+            <tbody><tr><td>SG-200</td><td>Steuergerät</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="yellow">Datumsabweichung</span></td></tr></tbody>
           </table>
         </div>
       </div>
     </section>
 
     <figure class="band" data-reveal>
-      <img src="/assets/modern-warehouse-with-pallet-rack-storage-system.jpg" width="1920" height="1496" alt="Große Lagerhalle mit orangefarbenen Palettenregalen, Paletten am Boden und einem Stapler" loading="lazy" decoding="async">
+      <div class="band__frame"><img src="/assets/modern-warehouse-with-pallet-rack-storage-system.jpg" width="1920" height="1496" alt="Große Lagerhalle mit orangefarbenen Palettenregalen, Paletten am Boden und einem Stapler" loading="lazy" decoding="async"></div>
       <figcaption>Hier entscheidet sich, ob ein Termin hält: zwischen Wareneingang, Lager und Fertigung.</figcaption>
     </figure>
 
@@ -124,70 +102,66 @@
         <h2 id="h-wie">So entsteht der Status</h2>
         <div class="card" data-ui data-reveal>
           <span class="ui-title">VA-1042 · Zeile 10000</span>
-          <dl><dt>Artikel</dt><dd>RR-200</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Warenausgang</dt><dd>13.11.2026</dd><dt>Status</dt><dd>–</dd></dl>
+          <dl><dt>Artikel</dt><dd>SG-200</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Warenausgang</dt><dd>13.11.2026</dd><dt>Status</dt><dd>–</dd></dl>
         </div>
         <p class="clause">Zuerst die Zeile aus dem Auftrag.</p>
       </div>
       <div class="field">
         <div class="card" data-ui data-reveal style="--i:1">
           <span class="ui-title">VA-1042 · Zeile 10000</span>
-          <dl><dt>Reserviert</dt><dd>FA-3077</dd><dt>Komponente</dt><dd>SP-80 ← EB-5521</dd><dt>Komponente</dt><dd>LR-50 ← Lager</dd><dt>Status</dt><dd>–</dd></dl>
+          <dl><dt>Gedeckt durch</dt><dd>FA-3077</dd><dt>Komponente</dt><dd>LP-80 ← EB-5521</dd><dt>Komponente</dt><dd>GH-50 ← Lager</dd><dt>Status</dt><dd>–</dd></dl>
         </div>
-        <p class="clause">Dann jede Reservierung bis zur Quelle.</p>
+        <p class="clause">Dann jeden Bedarf bis zur Quelle.</p>
       </div>
       <div class="field">
         <div class="card" data-ui data-reveal style="--i:2">
-          <span class="ui-title">EB-5521 · SP-80</span>
-          <dl><dt>Bedarf</dt><dd>06.11.2026</dd><dt>Wareneingang</dt><dd>09.11.2026</dd><dt>Menge</dt><dd>80 m</dd><dt>Status</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
+          <span class="ui-title">EB-5521 · LP-80</span>
+          <dl><dt>Bedarf</dt><dd>06.11.2026</dd><dt>Wareneingang</dt><dd>09.11.2026</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Status</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
         </div>
         <p class="clause">Dann jedes Ende der Kette bewerten.</p>
       </div>
       <div class="field">
         <div class="card" data-ui data-reveal style="--i:3">
-          <span class="ui-title">VA-1042 · Zeile 10000</span>
-          <dl><dt>Artikel</dt><dd>RR-200</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Warenausgang</dt><dd>13.11.2026</dd><dt>Status</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
+          <span class="ui-title">VA-1042 · Beleg</span>
+          <dl><dt>Zeile 10000</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd><dt>Zeile 20000</dt><dd><span class="status" data-c="green">Auf Lager</span></dd><dt>Belegstatus</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
         </div>
-        <p class="clause">Zuletzt gewinnt das Kritischste.</p>
+        <p class="clause">Zuletzt erhält der Beleg den kritischsten Status.</p>
       </div>
     </section>
 
     <section class="section" aria-labelledby="h-status">
       <div class="statuses">
       <div class="list">
-        <h2 id="h-status" data-reveal>Alle 17 Status</h2>
+        <h2 id="h-status" data-reveal>Die Status im Überblick</h2>
         <ul class="list__group" data-reveal>
           <li>Rot</li>
-          <li class="list__row"><span class="status" data-c="red">Kritisches Datum &amp; Menge</span><span class="list__value">Termin und Menge weichen ab</span></li>
-          <li class="list__row"><span class="status" data-c="red">Kritische Datumsabweichung</span><span class="list__value">Termin kritisch verfehlt</span></li>
-          <li class="list__row"><span class="status" data-c="red">Kritische Menge</span><span class="list__value">Menge kritisch zu gering</span></li>
           <li class="list__row"><span class="status" data-c="red">Keine Versorgung</span><span class="list__value">Bedarf ohne Beschaffung</span></li>
-          <li class="list__row"><span class="status" data-c="red">Überschuss (Keine Deckung)</span><span class="list__value">Beschaffung ohne Bedarf</span></li>
           <li class="list__row"><span class="status" data-c="red">Storno (Kein Bedarf)</span><span class="list__value">Planung schlägt Storno vor</span></li>
-          <li class="list__row"><span class="status" data-c="red">Warnung</span><span class="list__value">Mehrere kritische Abweichungen</span></li>
+          <li class="list__row"><span class="status" data-c="red">Warnung</span><span class="list__value">Kritische Kombination, z. B. ungedeckte Komponente</span></li>
         </ul>
         <ul class="list__group" data-reveal>
           <li>Gelb</li>
-          <li class="list__row"><span class="status" data-c="yellow">Datumsabweichung</span><span class="list__value">Lieferung nach Bedarfsdatum</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">Datumsabweichung</span><span class="list__value">Beschaffung nach dem Bedarfsdatum</span></li>
           <li class="list__row"><span class="status" data-c="yellow">Fehlende Menge</span><span class="list__value">Nur teilweise gedeckt</span></li>
-          <li class="list__row"><span class="status" data-c="yellow">Datum &amp; Menge</span><span class="list__value">Beides weicht ab, nicht kritisch</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">Datum &amp; Menge</span><span class="list__value">Verspätet und nur teilweise gedeckt</span></li>
           <li class="list__row"><span class="status" data-c="yellow">In Planung</span><span class="list__value">Gedeckt über Planungszeilen</span></li>
           <li class="list__row"><span class="status" data-c="yellow">In Transit</span><span class="list__value">Ware zwischen Lagerorten</span></li>
         </ul>
         <ul class="list__group" data-reveal>
           <li>Grün</li>
           <li class="list__row"><span class="status" data-c="green">Bereit</span><span class="list__value">Reserviert, noch nicht gestartet</span></li>
-          <li class="list__row"><span class="status" data-c="green">In Bearbeitung</span><span class="list__value">Fertigung oder Montage läuft</span></li>
+          <li class="list__row"><span class="status" data-c="green">In Bearbeitung</span><span class="list__value">Beschaffung läuft</span></li>
           <li class="list__row"><span class="status" data-c="green">Auf Lager</span><span class="list__value">Aus dem Lagerbestand gedeckt</span></li>
         </ul>
         <ul class="list__group" data-reveal>
           <li>Schwarz</li>
           <li class="list__row"><span class="status" data-c="black">Erledigt</span><span class="list__value">Vollständig geliefert</span></li>
-          <li class="list__row"><span class="status" data-c="black">Nicht ermittelbar</span><span class="list__value">Keine Planungsparameter</span></li>
+          <li class="list__row"><span class="status" data-c="black">Nicht ermittelbar</span><span class="list__value">Keine Dispositionsmethode</span></li>
         </ul>
       </div>
       <figure class="figure" data-reveal>
-        <img src="/assets/stahltrager-steel-profile.jpg" width="1920" height="1280" alt="Nahaufnahme eines verzinkten Stahlträgers mit I-Profil" loading="lazy" decoding="async">
-        <figcaption>Ein Stahlprofil, eine Komponente: Fehlt es, wartet der ganze Auftrag.</figcaption>
+        <img src="/assets/pick-and-place-internals-of-surface-mount.jpg" width="1322" height="1138" alt="Bestückungsautomat in der Elektronikfertigung: Bestückkopf über Bauteilträgern, davor die Bauteilzuführungen" loading="lazy" decoding="async">
+        <figcaption>Ein Bauteil fehlt, und die ganze Serie wartet.</figcaption>
       </figure>
       </div>
     </section>
@@ -197,7 +171,7 @@
         <h2 id="h-brief">Warum es den Analyzer gibt</h2>
         <p>In fast jedem Business-Central-Projekt kommt dieselbe Frage: Wird dieser Auftrag rechtzeitig fertig?</p>
         <p>Die Antwort steckt in Reservierungen und Auftragsverfolgung, verteilt über Verkauf, Fertigung, Einkauf und Lager. Wer sie sucht, klickt sich durch ein Dutzend Belege.</p>
-        <p>Der Demand Chain Analyzer folgt diesen Verknüpfungen bis zur Quelle und schreibt das Ergebnis dorthin, wo Sie ohnehin arbeiten: <mark>in die Belegzeile</mark>.</p>
+        <p>Der Demand Chain Analyzer folgt diesen Verknüpfungen bis zur Quelle und schreibt das Ergebnis dorthin, wo Sie ohnehin arbeiten: <mark>in den Beleg und in jede Belegzeile</mark>.</p>
         <p>Draft Partners habe ich gegründet, damit aus solchen Ideen Produkte werden. Wenn Sie den Analyzer in Ihrer Umgebung testen möchten, schreiben Sie mir.</p>
         <div class="letter__signoff">
           <div class="letter__portrait" aria-hidden="true">TM</div>
@@ -223,7 +197,7 @@
         <dl>
           <dt>E-Mail</dt><dd><a href="mailto:support@draftpartners.at">support@draftpartners.at</a></dd>
           <dt>Website</dt><dd>draftpartners.at</dd>
-          <dt>Sitz</dt><dd>Österreich</dd>
+          <dt>Sitz</dt><dd>Deutschlandsberg, Österreich</dd>
         </dl>
       </div>
     </section>
@@ -231,9 +205,8 @@
 
   <footer class="tiles">
     <div class="tile tile--statement">
-      <p class="tile__big">Erweiterungen für Microsoft Dynamics 365 Business Central.</p>
-      <p class="tile__small">© 2026 Draft Partners GmbH</p>
-      <p class="credits">Bilder: <a href="https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg">„Modern warehouse with pallet rack storage system“</a> von Axisadman, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Stahltr%C3%A4ger_(steel_profile).jpg">„Stahlträger (steel profile)“</a> von Sastognuti, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; via Wikimedia Commons.</p>
+      <p class="tile__big">A place where ideas can grow.</p>
+      <p class="tile__small">© 2026 Draft Partners GmbH · Bildnachweis im <a href="/impressum.html#bildnachweis">Impressum</a></p>
     </div>
     <div class="tile tile--nav">
       <nav aria-label="Rechtliches und Hilfe">

@@ -24,27 +24,27 @@
   "saved": "2026-10-21T19:29:01.322Z"
  },
  {
-  "file": "assets/stahltrager-steel-profile.jpg",
+  "file": "assets/pick-and-place-internals-of-surface-mount.jpg",
   "media": "image",
-  "ref": "commons:50413403",
-  "title": "Stahlträger (steel profile)",
-  "creator": "Sastognuti",
+  "ref": "commons:2850815",
+  "title": "Pick and place internals of surface mount machine",
+  "creator": "Peripitus",
   "creatorUrl": null,
-  "date": "2016-07-11",
-  "license": "CC BY-SA 4.0",
+  "date": "2007-10-03",
+  "license": "CC BY-SA 3.0",
   "licenseCode": "by-sa",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "creditRequired": true,
-  "page": "https://commons.wikimedia.org/wiki/File:Stahltr%C3%A4ger_(steel_profile).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pick_and_place_internals_of_surface_mount_machine.JPG",
   "via": "Wikimedia Commons",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Stahltr%C3%A4ger_%28steel_profile%29.jpg/1920px-Stahltr%C3%A4ger_%28steel_profile%29.jpg",
-  "width": 1920,
-  "height": 1280,
-  "bytes": 290628,
-  "credit": "\"Stahlträger (steel profile)\" by Sastognuti, CC BY-SA 4.0, via Wikimedia Commons",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Pick_and_place_internals_of_surface_mount_machine.JPG",
+  "width": 1322,
+  "height": 1138,
+  "bytes": 308965,
+  "credit": "\"Pick and place internals of surface mount machine\" by Peripitus, CC BY-SA 3.0, via Wikimedia Commons",
   "notes": [
    "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
   ],
-  "saved": "2026-10-21T19:29:01.940Z"
+  "saved": "2026-10-21T19:57:38.654Z"
  }
 ]
