@@ -216,13 +216,12 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.07e
 
 .about { background: var(--surface); margin-top: var(--gap-section); padding: clamp(96px, 10vw, 160px) var(--margin); }
 .letter { width: min(520px, 100%); margin: 0 auto; }
-.letter__portrait { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: var(--step-small); font-weight: 500; }
 .letter h2 { font-size: 2rem; margin: 0 0 28px; }
 .letter p { line-height: 1.55; margin: 0 0 1.4em; }
 .letter mark { background: var(--accent); color: var(--accent-ink); padding: 0 0.15em; }
-.letter__signoff { display: flex; align-items: center; gap: 16px; margin-top: 2rem; }
-.letter__sign { font-size: var(--step-lead); margin: 0; }
-.letter__role { color: var(--muted); font-size: var(--step-small); margin: 0; }
+.letter__signoff { margin-top: 2rem; }
+.letter .letter__sign { font-size: var(--step-lead); margin: 0; }
+.letter .letter__role { color: var(--muted); font-size: var(--step-small); margin: 0; }
 
 .contact { width: min(520px, 100%); margin: 0 auto; padding-bottom: 160px; }
 .contact h2 { font-size: 2rem; line-height: 1.1; letter-spacing: -0.02em; }
