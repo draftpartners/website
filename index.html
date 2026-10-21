@@ -3,63 +3,263 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>Draft Partners GmbH – A place where ideas can grow</title>
-  <meta name="description" content="Draft Partners GmbH entwickelt Erweiterungen für Microsoft Dynamics 365 Business Central und berät Unternehmen.">
-  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="theme-color" content="#0f1f10">
+  <title>Demand Chain Analyzer für Business Central – Draft Partners</title>
+  <meta name="description" content="Der Demand Chain Analyzer zeigt in jeder Business-Central-Auftragszeile, ob der Bedarf rechtzeitig und vollständig gedeckt ist – über Fertigung, Einkauf und Lager hinweg.">
+  <link rel="preload" href="/assets/fonts/ClashGrotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
-  <header>
-    <div class="wrap">
-      <a class="brand" href="/" aria-current="page" translate="no">Draft Partners</a>
-      <nav aria-label="Hauptnavigation">
-        <a href="/demand-chain-analyzer.html" translate="no">Demand Chain Analyzer</a>
-        <a href="/hilfe.html">Hilfe</a>
-        <a href="/support.html">Support</a>
-      </nav>
-    </div>
-  </header>
 
   <main id="main">
-  <section class="hero">
-    <div class="wrap">
-      <h1>A place where ideas can grow.</h1>
-      <p>Wir entwickeln Erweiterungen für Microsoft Dynamics 365 Business Central und begleiten Unternehmen
-        mit Beratung – von der ersten Idee bis zum laufenden Betrieb.</p>
-      <a class="button" href="/demand-chain-analyzer.html">Demand Chain Analyzer entdecken</a>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="grid">
-        <div class="card">
-          <h2>Business-Central-Apps</h2>
-          <p>Fokussierte Erweiterungen, die sich nahtlos in Business Central einfügen – verfügbar über Microsoft AppSource.</p>
-        </div>
-        <div class="card">
-          <h2>Consulting</h2>
-          <p>Unterstützung bei Einführung, Prozessgestaltung und Weiterentwicklung von Business Central.</p>
-        </div>
-        <div class="card">
-          <h2>Kontakt</h2>
-          <p><a href="mailto:support@draftpartners.at">support@draftpartners.at</a></p>
+    <header class="hero">
+      <div class="hero__left">
+        <a class="wordmark hero__mark" href="/" translate="no">Draft Partners</a>
+        <div class="hero__text">
+          <h1 class="lines">
+            <span class="line"><span data-line style="--i:0" translate="no">Demand Chain Analyzer</span></span>
+            <span class="line"><span data-line style="--i:1">für Business Central</span></span>
+          </h1>
+          <p class="lead" data-load style="--d:420ms">Sehen Sie in jeder Auftragszeile, ob der Bedarf rechtzeitig und vollständig gedeckt ist – über Fertigung, Einkauf und Lager hinweg.</p>
+          <a class="button" data-load style="--d:480ms" href="#kontakt">Pilotprojekt anfragen</a>
         </div>
       </div>
-    </div>
-  </section>
+
+      <div class="hero__right" id="kette">
+        <a class="hero__help" href="/hilfe.html">Hilfe</a>
+        <section class="chain" data-ui data-chain aria-label="Beispiel einer Bedarfskette zum Ausprobieren">
+          <div class="chain__head">
+            <span class="ui-title">Bedarfskette · VA-1042 · Zeile 10000</span>
+            <span class="ui-muted">Beispiel</span>
+          </div>
+          <ul class="chain__tree">
+            <li data-node="va" style="--lvl:0">
+              <span><span class="node-doc">Verkaufsauftrag VA-1042</span><span class="node-meta">RR-200 Rollregal · 40 Stk · Warenausgang 13.11.2026</span></span>
+              <span class="status" data-c="green">In Bearbeitung</span>
+            </li>
+            <li data-node="fa" style="--lvl:1">
+              <span><span class="node-doc">Fertigungsauftrag FA-3077</span><span class="node-meta">RR-200 Rollregal · 40 Stk · Ende 11.11.2026</span></span>
+              <span class="status" data-c="green">In Bearbeitung</span>
+            </li>
+            <li data-node="sp" style="--lvl:2">
+              <span><span class="node-doc">Komponente SP-80 Stahlprofil</span><span class="node-meta">80 m · Bedarf 06.11.2026</span></span>
+              <span class="status" data-c="green">In Bearbeitung</span>
+            </li>
+            <li data-node="eb" style="--lvl:3">
+              <span><span class="node-doc">Einkaufsbestellung EB-5521</span><span class="node-meta">Stahlwerk Kapfenberg · SP-80</span></span>
+              <span class="status" data-c="green">In Bearbeitung</span>
+            </li>
+            <li data-node="lr" style="--lvl:2">
+              <span><span class="node-doc">Komponente LR-50 Lenkrolle</span><span class="node-meta">160 Stk · Bedarf 06.11.2026</span></span>
+              <span class="status" data-c="green">Auf Lager</span>
+            </li>
+            <li data-node="stock" style="--lvl:3">
+              <span><span class="node-doc">Lagerbestand Lager GRAZ</span><span class="node-meta">LR-50 · 160 Stk</span></span>
+              <span class="status" data-c="green">Auf Lager</span>
+            </li>
+          </ul>
+          <div class="chain__controls">
+            <label for="eb-date">Erw. Wareneingang EB-5521
+              <input id="eb-date" name="eb-date" type="date" value="2026-11-04" min="2026-10-01" max="2026-12-31">
+            </label>
+            <label for="eb-qty">Menge EB-5521 (m)
+              <input id="eb-qty" name="eb-qty" type="number" inputmode="numeric" value="80" min="0" max="200" step="10">
+            </label>
+            <p class="chain__readout" data-readout aria-live="polite">
+              <span>Bedarfsstatus der Verkaufszeile: <span class="status" data-c="green">In Bearbeitung</span></span>
+              <button class="chain__reset" type="button">Zurücksetzen</button>
+            </p>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <section class="section showcase" aria-labelledby="h-zeile">
+      <h2 id="h-zeile" data-reveal>Direkt in der Zeile</h2>
+
+      <div class="state">
+        <p class="state__word" data-reveal>Neu</p>
+        <div class="row" data-ui data-reveal style="--i:1">
+          <table>
+            <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
+            <tbody><tr><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="state">
+        <p class="state__word" data-reveal>Berechnen</p>
+        <div class="row" data-ui data-reveal data-live-row style="--i:1">
+          <table>
+            <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
+            <tbody><tr class="is-hover"><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="none">&nbsp;</span></td></tr></tbody>
+          </table>
+          <div class="row__actions">
+            <button class="primary" type="button" data-calc>Berechne Bedarfskette</button>
+            <button type="button" onclick="document.getElementById('kette').scrollIntoView({ behavior: 'smooth' })">Öffne Bedarfskette</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="state">
+        <p class="state__word" data-reveal>Ergebnis</p>
+        <div class="row" data-ui data-reveal style="--i:1">
+          <table>
+            <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
+            <tbody><tr><td>RR-200</td><td>Rollregal</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="yellow">Datumsabweichung</span></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <figure class="band" data-reveal>
+      <img src="/assets/modern-warehouse-with-pallet-rack-storage-system.jpg" width="1920" height="1496" alt="Große Lagerhalle mit orangefarbenen Palettenregalen, Paletten am Boden und einem Stapler" loading="lazy" decoding="async">
+      <figcaption>Hier entscheidet sich, ob ein Termin hält: zwischen Wareneingang, Lager und Fertigung.</figcaption>
+    </figure>
+
+    <section class="fields" aria-labelledby="h-wie">
+      <div class="field">
+        <h2 id="h-wie">So entsteht der Status</h2>
+        <div class="card" data-ui data-reveal>
+          <span class="ui-title">VA-1042 · Zeile 10000</span>
+          <dl><dt>Artikel</dt><dd>RR-200</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Warenausgang</dt><dd>13.11.2026</dd><dt>Status</dt><dd>–</dd></dl>
+        </div>
+        <p class="clause">Zuerst die Zeile aus dem Auftrag.</p>
+      </div>
+      <div class="field">
+        <div class="card" data-ui data-reveal style="--i:1">
+          <span class="ui-title">VA-1042 · Zeile 10000</span>
+          <dl><dt>Reserviert</dt><dd>FA-3077</dd><dt>Komponente</dt><dd>SP-80 ← EB-5521</dd><dt>Komponente</dt><dd>LR-50 ← Lager</dd><dt>Status</dt><dd>–</dd></dl>
+        </div>
+        <p class="clause">Dann jede Reservierung bis zur Quelle.</p>
+      </div>
+      <div class="field">
+        <div class="card" data-ui data-reveal style="--i:2">
+          <span class="ui-title">EB-5521 · SP-80</span>
+          <dl><dt>Bedarf</dt><dd>06.11.2026</dd><dt>Wareneingang</dt><dd>09.11.2026</dd><dt>Menge</dt><dd>80 m</dd><dt>Status</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
+        </div>
+        <p class="clause">Dann jedes Ende der Kette bewerten.</p>
+      </div>
+      <div class="field">
+        <div class="card" data-ui data-reveal style="--i:3">
+          <span class="ui-title">VA-1042 · Zeile 10000</span>
+          <dl><dt>Artikel</dt><dd>RR-200</dd><dt>Menge</dt><dd>40 Stk</dd><dt>Warenausgang</dt><dd>13.11.2026</dd><dt>Status</dt><dd><span class="status" data-c="yellow">Datumsabweichung</span></dd></dl>
+        </div>
+        <p class="clause">Zuletzt gewinnt das Kritischste.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-status">
+      <div class="statuses">
+      <div class="list">
+        <h2 id="h-status" data-reveal>Alle 17 Status</h2>
+        <ul class="list__group" data-reveal>
+          <li>Rot</li>
+          <li class="list__row"><span class="status" data-c="red">Kritisches Datum &amp; Menge</span><span class="list__value">Termin und Menge weichen ab</span></li>
+          <li class="list__row"><span class="status" data-c="red">Kritische Datumsabweichung</span><span class="list__value">Termin kritisch verfehlt</span></li>
+          <li class="list__row"><span class="status" data-c="red">Kritische Menge</span><span class="list__value">Menge kritisch zu gering</span></li>
+          <li class="list__row"><span class="status" data-c="red">Keine Versorgung</span><span class="list__value">Bedarf ohne Beschaffung</span></li>
+          <li class="list__row"><span class="status" data-c="red">Überschuss (Keine Deckung)</span><span class="list__value">Beschaffung ohne Bedarf</span></li>
+          <li class="list__row"><span class="status" data-c="red">Storno (Kein Bedarf)</span><span class="list__value">Planung schlägt Storno vor</span></li>
+          <li class="list__row"><span class="status" data-c="red">Warnung</span><span class="list__value">Mehrere kritische Abweichungen</span></li>
+        </ul>
+        <ul class="list__group" data-reveal>
+          <li>Gelb</li>
+          <li class="list__row"><span class="status" data-c="yellow">Datumsabweichung</span><span class="list__value">Lieferung nach Bedarfsdatum</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">Fehlende Menge</span><span class="list__value">Nur teilweise gedeckt</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">Datum &amp; Menge</span><span class="list__value">Beides weicht ab, nicht kritisch</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">In Planung</span><span class="list__value">Gedeckt über Planungszeilen</span></li>
+          <li class="list__row"><span class="status" data-c="yellow">In Transit</span><span class="list__value">Ware zwischen Lagerorten</span></li>
+        </ul>
+        <ul class="list__group" data-reveal>
+          <li>Grün</li>
+          <li class="list__row"><span class="status" data-c="green">Bereit</span><span class="list__value">Reserviert, noch nicht gestartet</span></li>
+          <li class="list__row"><span class="status" data-c="green">In Bearbeitung</span><span class="list__value">Fertigung oder Montage läuft</span></li>
+          <li class="list__row"><span class="status" data-c="green">Auf Lager</span><span class="list__value">Aus dem Lagerbestand gedeckt</span></li>
+        </ul>
+        <ul class="list__group" data-reveal>
+          <li>Schwarz</li>
+          <li class="list__row"><span class="status" data-c="black">Erledigt</span><span class="list__value">Vollständig geliefert</span></li>
+          <li class="list__row"><span class="status" data-c="black">Nicht ermittelbar</span><span class="list__value">Keine Planungsparameter</span></li>
+        </ul>
+      </div>
+      <figure class="figure" data-reveal>
+        <img src="/assets/stahltrager-steel-profile.jpg" width="1920" height="1280" alt="Nahaufnahme eines verzinkten Stahlträgers mit I-Profil" loading="lazy" decoding="async">
+        <figcaption>Ein Stahlprofil, eine Komponente: Fehlt es, wartet der ganze Auftrag.</figcaption>
+      </figure>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="h-brief">
+      <article class="letter" data-reveal>
+        <h2 id="h-brief">Warum es den Analyzer gibt</h2>
+        <p>In fast jedem Business-Central-Projekt kommt dieselbe Frage: Wird dieser Auftrag rechtzeitig fertig?</p>
+        <p>Die Antwort steckt in Reservierungen und Auftragsverfolgung, verteilt über Verkauf, Fertigung, Einkauf und Lager. Wer sie sucht, klickt sich durch ein Dutzend Belege.</p>
+        <p>Der Demand Chain Analyzer folgt diesen Verknüpfungen bis zur Quelle und schreibt das Ergebnis dorthin, wo Sie ohnehin arbeiten: <mark>in die Belegzeile</mark>.</p>
+        <p>Draft Partners habe ich gegründet, damit aus solchen Ideen Produkte werden. Wenn Sie den Analyzer in Ihrer Umgebung testen möchten, schreiben Sie mir.</p>
+        <div class="letter__signoff">
+          <div class="letter__portrait" aria-hidden="true">TM</div>
+          <div>
+            <p class="letter__sign">Thomas Mauser</p>
+            <p class="letter__role">Gründer, Draft Partners</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="kontakt" aria-labelledby="h-kontakt">
+      <div class="contact" data-reveal>
+        <h2 id="h-kontakt"><span class="soft">Selbst ausprobieren?</span><span>Schreiben Sie uns.</span></h2>
+        <form data-contact action="mailto:support@draftpartners.at" method="post" enctype="text/plain">
+          <label class="sr-only" for="email">Ihre E-Mail-Adresse</label>
+          <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" required placeholder="z. B. name@firma.at">
+          <button type="submit" aria-label="Anfrage per E-Mail vorbereiten">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+          </button>
+        </form>
+        <p class="contact__note">Ihr E-Mail-Programm öffnet sich mit einer vorbereiteten Nachricht. Wir antworten in der Regel innerhalb von zwei Werktagen.</p>
+        <dl>
+          <dt>E-Mail</dt><dd><a href="mailto:support@draftpartners.at">support@draftpartners.at</a></dd>
+          <dt>Website</dt><dd>draftpartners.at</dd>
+          <dt>Sitz</dt><dd>Österreich</dd>
+        </dl>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>&copy; 2026 Draft Partners GmbH</span>
-      <nav aria-label="Rechtliches">
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/eula.html">EULA</a>
+  <footer class="tiles">
+    <div class="tile tile--statement">
+      <p class="tile__big">Erweiterungen für Microsoft Dynamics 365 Business Central.</p>
+      <p class="tile__small">© 2026 Draft Partners GmbH</p>
+      <p class="credits">Bilder: <a href="https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg">„Modern warehouse with pallet rack storage system“</a> von Axisadman, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Stahltr%C3%A4ger_(steel_profile).jpg">„Stahlträger (steel profile)“</a> von Sastognuti, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; via Wikimedia Commons.</p>
+    </div>
+    <div class="tile tile--nav">
+      <nav aria-label="Rechtliches und Hilfe">
+        <ul>
+          <li><a href="/hilfe.html">Hilfe</a></li>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="/impressum.html">Impressum</a></li>
+          <li><a href="/datenschutz.html">Datenschutz</a></li>
+          <li><a href="/eula.html">EULA</a></li>
+        </ul>
       </nav>
     </div>
+    <div class="tile tile--time">
+      <p class="tile__big">Österreich, <span data-time>MEZ</span></p>
+    </div>
+    <div class="tile tile--mail">
+      <p class="tile__small">Schreiben Sie uns</p>
+      <p class="tile__big"><a href="mailto:support@draftpartners.at">support@draftpartners.at</a></p>
+    </div>
+    <div class="tile tile--word"><span translate="no">Draft Partners</span></div>
+    <a class="tile tile--cta" href="#kontakt">
+      <span class="tile__big">Pilot anfragen</span>
+      <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40L40 8M16 8h24v24" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+    </a>
   </footer>
+
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
