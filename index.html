@@ -82,11 +82,21 @@
       </div>
 
       <div class="state">
-        <p class="state__word" data-reveal>Ergebnis</p>
-        <div class="row" data-ui data-reveal style="--i:1">
+        <p class="state__word" data-reveal>Beleg</p>
+        <div class="row doc" data-ui data-reveal data-doc-result style="--i:1">
+          <dl class="doc__head">
+            <div><dt>Nr.</dt><dd>VA-1042</dd></div>
+            <div><dt>Debitor</dt><dd>D-10000 Musterkunde</dd></div>
+            <div><dt>Warenausg.-Datum</dt><dd>13.11.2026</dd></div>
+            <div><dt>Bedarf Status</dt><dd><span class="status" data-c="none" data-set="yellow|Datumsabweichung">&nbsp;</span></dd></div>
+          </dl>
           <table>
-            <thead><tr><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Warenausg.-Datum</th><th>Bedarf Status</th></tr></thead>
-            <tbody><tr><td>SG-200</td><td>Steuergerät</td><td class="num">40</td><td>13.11.2026</td><td><span class="status" data-c="yellow">Datumsabweichung</span></td></tr></tbody>
+            <thead><tr><th>Zeile</th><th>Nr.</th><th>Beschreibung</th><th class="num">Menge</th><th>Bedarf Status</th></tr></thead>
+            <tbody>
+              <tr><td>10000</td><td>SG-200</td><td>Steuergerät</td><td class="num">40</td><td><span class="status" data-c="none" data-set="yellow|Datumsabweichung">&nbsp;</span></td></tr>
+              <tr><td>20000</td><td>ZB-10</td><td>Zubehörset</td><td class="num">40</td><td><span class="status" data-c="none" data-set="green|Auf Lager">&nbsp;</span></td></tr>
+              <tr><td>30000</td><td>KS-05</td><td>Kabelsatz</td><td class="num">80</td><td><span class="status" data-c="none" data-set="green|In Bearbeitung">&nbsp;</span></td></tr>
+            </tbody>
           </table>
         </div>
       </div>

@@ -98,7 +98,13 @@
     };
 
     dateIn.addEventListener('input', () => { if (dateIn.value) { m[sel].date = dateIn.value; update(); } });
-    qtyIn.addEventListener('input', () => { m[sel].qty = Math.max(0, Number(qtyIn.value) || 0); update(); });
+    qtyIn.addEventListener('input', () => {
+      const qty = Math.max(0, Number(qtyIn.value) || 0);
+      // components follow the production quantity pro rata
+      if (sel === 'fa') for (const c of ['lp', 'gh']) m[c].qty = Math.round(START[c].qty * qty / START.fa.qty);
+      m[sel].qty = qty;
+      update();
+    });
     chain.querySelector('.chain__reset').addEventListener('click', () => { m = structuredClone(START); fill(); update(); });
     fill();
     update();
@@ -110,6 +116,7 @@
       setStatus(live.querySelector('.status'), 'yellow', 'Datumsabweichung');
       live.querySelector('tr.is-hover')?.classList.remove('is-hover');
       live.querySelector('[data-calc]').textContent = 'Erneut berechnen';
+      document.querySelectorAll('[data-doc-result] [data-set]').forEach((el) => setStatus(el, ...el.dataset.set.split('|')));
     });
   }
 
