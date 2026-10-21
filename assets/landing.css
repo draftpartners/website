@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/assets/fonts/ClashGrotesk-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/assets/fonts/ClashGrotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0f1f10;
+  --ink: #ffffff;
+  --muted: #a6aea6;
+  --accent: #c6f19d;
+  --margin: clamp(20px, 2.8vw, 40px);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+
+body {
+  font-family: "Clash Grotesk", system-ui, sans-serif;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--margin);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-thickness: 0.07em; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(3.5rem, 13vw, 14rem);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.vision {
+  margin: clamp(1.5rem, 3vw, 3rem) 0 0;
+  font-size: clamp(1.5rem, 1.1rem + 2vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+footer { font-size: 0.875rem; color: var(--muted); line-height: 1.5; max-width: 60rem; }
+footer p { margin: 0 0 0.5rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js h1, .js .vision { opacity: 0; transform: translateY(24px); animation: rise 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .js .vision { animation-delay: 180ms; }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
