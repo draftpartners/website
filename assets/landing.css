@@ -11,19 +11,13 @@
   font-display: swap;
 }
 
-/* candidates for the font comparison */
-@font-face { font-family: "Satoshi"; src: url("/assets/fonts/Satoshi-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Satoshi"; src: url("/assets/fonts/Satoshi-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "General Sans"; src: url("/assets/fonts/GeneralSans-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "General Sans"; src: url("/assets/fonts/GeneralSans-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Cabinet Grotesk"; src: url("/assets/fonts/CabinetGrotesk-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Cabinet Grotesk"; src: url("/assets/fonts/CabinetGrotesk-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Switzer"; src: url("/assets/fonts/Switzer-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Switzer"; src: url("/assets/fonts/Switzer-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Space Grotesk"; src: url("/assets/fonts/SpaceGrotesk-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Space Grotesk"; src: url("/assets/fonts/SpaceGrotesk-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Inter Tight"; src: url("/assets/fonts/InterTight-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Inter Tight"; src: url("/assets/fonts/InterTight-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+/* fonts for the creative mix (all OFL, self-hosted) */
+@font-face { font-family: "Fraunces"; src: url("/assets/fonts/Fraunces.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/InstrumentSerif.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("/assets/fonts/SpaceMono.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Syne"; src: url("/assets/fonts/Syne.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Unbounded"; src: url("/assets/fonts/Unbounded.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
 
 :root {
   --bg: #0f1f10;

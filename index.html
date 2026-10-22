@@ -9,7 +9,7 @@
   <title>Draft Partners – A place where ideas can grow</title>
   <meta name="description" content="Draft Partners – A place where ideas can grow.">
   <link rel="preload" href="/assets/fonts/ClashGrotesk-500.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/landing.css?v=4">
+  <link rel="stylesheet" href="/assets/landing.css?v=5">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -39,7 +39,7 @@
       tick();
       setInterval(tick, 30000);
 
-      const fonts = ['Clash Grotesk', 'Satoshi', 'General Sans', 'Cabinet Grotesk', 'Switzer', 'Space Grotesk', 'Inter Tight'];
+      const fonts = ['Clash Grotesk', 'Fraunces', 'Instrument Serif', 'Space Mono', 'Syne', 'Unbounded', 'Bricolage Grotesque'];
       const h1 = document.querySelector('h1');
       const vision = document.querySelector('.vision');
       const text = h1.firstChild;
@@ -60,13 +60,23 @@
         el.style.animationDelay = `${delay}ms`;
         el.classList.add('is-new');
       };
+      // wide mixes (e.g. Unbounded) must not run off the screen
+      const fit = async (used) => {
+        h1.style.fontSize = '';
+        await Promise.all(used.map((f) => document.fonts.load(`500 1em "${f}"`)));
+        const over = h1.scrollWidth / h1.clientWidth;
+        if (over > 1) h1.style.fontSize = `${parseFloat(getComputedStyle(h1).fontSize) / over}px`;
+      };
       document.querySelector('[data-font-switch]').addEventListener('click', () => {
-        spans.forEach((s, n) => { s.style.fontFamily = `"${pick()}"`; settle(s, n * 35); });
+        const used = spans.map((s) => { const f = pick(); s.style.fontFamily = `"${f}"`; return f; });
+        spans.forEach((s, n) => settle(s, n * 35));
         vision.style.fontFamily = `"${pick()}"`;
+        fit([...new Set(used)]);
       });
       document.querySelector('[data-font-reset]').addEventListener('click', () => {
         spans.forEach((s, n) => { s.style.fontFamily = ''; settle(s, n * 35); });
         vision.style.fontFamily = '';
+        h1.style.fontSize = '';
       });
     })();
   </script>
