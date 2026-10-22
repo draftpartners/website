@@ -11,13 +11,31 @@
   font-display: swap;
 }
 
-/* fonts for the creative mix (all OFL, self-hosted) */
-@font-face { font-family: "Fraunces"; src: url("/assets/fonts/Fraunces.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
-@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/InstrumentSerif.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
-@font-face { font-family: "Space Mono"; src: url("/assets/fonts/SpaceMono.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
-@font-face { font-family: "Syne"; src: url("/assets/fonts/Syne.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
-@font-face { font-family: "Unbounded"; src: url("/assets/fonts/Unbounded.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
-@font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+/* fonts for the creative mix (all OFL, self-hosted; only downloaded when a letter uses them) */
+@font-face { font-family: "Fraunces"; src: url("/assets/fonts/mix/Fraunces.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/mix/InstrumentSerif.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("/assets/fonts/mix/SpaceMono.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Syne"; src: url("/assets/fonts/mix/Syne.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Unbounded"; src: url("/assets/fonts/mix/Unbounded.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/mix/BricolageGrotesque.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("/assets/fonts/mix/PlayfairDisplay.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "DM Serif Display"; src: url("/assets/fonts/mix/DMSerifDisplay.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Abril Fatface"; src: url("/assets/fonts/mix/AbrilFatface.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Bebas Neue"; src: url("/assets/fonts/mix/BebasNeue.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Bungee"; src: url("/assets/fonts/mix/Bungee.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Archivo Black"; src: url("/assets/fonts/mix/ArchivoBlack.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Alfa Slab One"; src: url("/assets/fonts/mix/AlfaSlabOne.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Shrikhand"; src: url("/assets/fonts/mix/Shrikhand.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Pacifico"; src: url("/assets/fonts/mix/Pacifico.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Caveat"; src: url("/assets/fonts/mix/Caveat.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Permanent Marker"; src: url("/assets/fonts/mix/PermanentMarker.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Orbitron"; src: url("/assets/fonts/mix/Orbitron.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("/assets/fonts/mix/Cinzel.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "UnifrakturMaguntia"; src: url("/assets/fonts/mix/UnifrakturMaguntia.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Special Elite"; src: url("/assets/fonts/mix/SpecialElite.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "VT323"; src: url("/assets/fonts/mix/VT323.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Major Mono Display"; src: url("/assets/fonts/mix/MajorMonoDisplay.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Comfortaa"; src: url("/assets/fonts/mix/Comfortaa.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
 
 :root {
   --bg: #0f1f10;

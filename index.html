@@ -9,7 +9,7 @@
   <title>Draft Partners – A place where ideas can grow</title>
   <meta name="description" content="Draft Partners – A place where ideas can grow.">
   <link rel="preload" href="/assets/fonts/ClashGrotesk-500.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/landing.css?v=5">
+  <link rel="stylesheet" href="/assets/landing.css?v=6">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -39,7 +39,7 @@
       tick();
       setInterval(tick, 30000);
 
-      const fonts = ['Clash Grotesk', 'Fraunces', 'Instrument Serif', 'Space Mono', 'Syne', 'Unbounded', 'Bricolage Grotesque'];
+      const fonts = ['Fraunces', 'Instrument Serif', 'Space Mono', 'Syne', 'Unbounded', 'Bricolage Grotesque', 'Playfair Display', 'DM Serif Display', 'Abril Fatface', 'Bebas Neue', 'Bungee', 'Archivo Black', 'Alfa Slab One', 'Shrikhand', 'Pacifico', 'Caveat', 'Permanent Marker', 'Orbitron', 'Cinzel', 'UnifrakturMaguntia', 'Special Elite', 'VT323', 'Major Mono Display', 'Comfortaa'];
       const h1 = document.querySelector('h1');
       const vision = document.querySelector('.vision');
       const text = h1.firstChild;
@@ -52,7 +52,8 @@
       });
       text.replaceWith(...letters);
       const spans = letters.filter((n) => n.nodeType === 1);
-      const pick = () => fonts[Math.floor(Math.random() * fonts.length)];
+      let last = '';
+      const pick = () => { let f; do { f = fonts[Math.floor(Math.random() * fonts.length)]; } while (f === last); last = f; return f; };
 
       const settle = (el, delay) => {
         el.classList.remove('is-new');
@@ -68,9 +69,9 @@
         if (over > 1) h1.style.fontSize = `${parseFloat(getComputedStyle(h1).fontSize) / over}px`;
       };
       document.querySelector('[data-font-switch]').addEventListener('click', () => {
-        const used = spans.map((s) => { const f = pick(); s.style.fontFamily = `"${f}"`; return f; });
+        const used = spans.map((s) => { const f = pick(); s.style.fontFamily = `"${f}", "Clash Grotesk"`; return f; });
         spans.forEach((s, n) => settle(s, n * 35));
-        vision.style.fontFamily = `"${pick()}"`;
+        vision.style.fontFamily = `"${pick()}", "Clash Grotesk"`;
         fit([...new Set(used)]);
       });
       document.querySelector('[data-font-reset]').addEventListener('click', () => {
